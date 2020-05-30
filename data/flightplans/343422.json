@@ -1,0 +1,78 @@
+{
+  "id": 343422,
+  "fromICAO": "VTBS",
+  "toICAO": "VTCC",
+  "fromName": "Bangkok Suvarnabhumi Intl",
+  "toName": "Chiang Mai Intl",
+  "flightNumber": null,
+  "distance": 323.05561527809704,
+  "maxAltitude": 32600,
+  "waypoints": 5,
+  "likes": 0,
+  "downloads": 0,
+  "popularity": 1488637032,
+  "notes": "Basic altitude profile:\n- Ascent Rate: 2500ft/min\n- Ascent Speed: 250kts\n- Cruise Altitude: 24000ft\n- Cruise Speed: 420kts\n- Descent Rate: 1500ft/min\n- Descent Speed: 250kts\n\nOptions:\n- Use NATs: yes\n- Use PACOTS: yes\n- Use low airways: no\n- Use high airways: yes\n",
+  "encodedPolyline": "{}nrA}f|eR{rh@vp\\uu_Nj`_D{}uM|g~CqCsG",
+  "createdAt": "2017-03-04T14:17:12.000Z",
+  "updatedAt": "2017-03-04T14:17:12.000Z",
+  "tags": [
+    "generated"
+  ],
+  "user": null,
+  "application": null,
+  "route": {
+    "nodes": [
+      {
+        "type": "APT",
+        "ident": "VTBS",
+        "name": "Bangkok Suvarnabhumi Intl",
+        "lat": 13.680455519999995,
+        "lon": 100.74751201999999,
+        "alt": 0,
+        "via": null
+      },
+      {
+        "type": "VOR",
+        "ident": "BKK",
+        "name": "BANGKOK VOR-DME",
+        "lat": 13.893556000000004,
+        "lon": 100.59619399999997,
+        "alt": 5500,
+        "via": null
+      },
+      {
+        "type": "FIX",
+        "ident": "BEKOD",
+        "name": null,
+        "lat": 16.354782,
+        "lon": 99.776771,
+        "alt": 32600,
+        "via": {
+          "type": "AWY-HI",
+          "ident": "A464"
+        }
+      },
+      {
+        "type": "VOR",
+        "ident": "CMA",
+        "name": "CHIANG MAI VOR-DME",
+        "lat": 18.766119000000003,
+        "lon": 98.96126400000003,
+        "alt": 0,
+        "via": {
+          "type": "AWY-HI",
+          "ident": "A464"
+        }
+      },
+      {
+        "type": "APT",
+        "ident": "VTCC",
+        "name": "Chiang Mai Intl",
+        "lat": 18.766845500000002,
+        "lon": 98.96264300000001,
+        "alt": 0,
+        "via": null
+      }
+    ]
+  }
+}

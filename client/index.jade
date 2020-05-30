@@ -1,0 +1,101 @@
+html(ng-app="cbas-labs.app",ng-controller="AppController as $ctrl")
+
+
+  head
+
+    title CBAS Labs
+
+    link(href="styles/dependencies/angular-material/angular-material.css",rel="stylesheet",type="text/css")
+    link(href="styles/app/index.css",rel="stylesheet",type="text/css")
+
+
+  body(layout="column")
+
+    ui-gmap-google-map(center='$ctrl.map.center',zoom='$ctrl.map.zoom',style="display:none")
+
+    md-toolbar(ng-cloak)
+
+      div(class="md-toolbar-tools") CBAS-LABS
+
+    div(layout,layout-fill,ng-cloak)
+
+      md-sidenav(md-is-locked-open="true")
+
+        md-toolbar
+          h1(class="md-toolbar-tools") Flight Plans
+
+        md-card(flex="none",class="flightplan-search-form")
+          form(name="searchForm",ng-submit="$ctrl.searchFlightPlans($ctrl.fromICAO, $ctrl.toICAO)")
+            div(Layout)
+              md-input-container
+                label From ICAO
+                input(ng-model="$ctrl.fromICAO",required)
+                div(ng-messages)
+                  div(ng-message="required") Origin is required
+              md-input-container
+                label To ICAO
+                input(ng-model="$ctrl.toICAO",required)
+                div(ng-messages)
+                  div(ng-message="required") Destination is required
+            div(layout,layout-align="center center",class="bottom-panel")
+              md-progress-circular(ng-show="$ctrl.$process$flightPlans",md-mode="indeterminate",md-diameter="25")
+              span(flex)
+              md-button.md-primary.md-raised(ng-disabled="$ctrl.$process$flightPlans || ! searchForm.$valid",type="submit") Search
+
+
+        md-content
+          md-list
+            md-list-item(ng-repeat="$flightPlan in $ctrl.flightPlans",ng-click="$ctrl.onFlightPlanSelect($flightPlan)")
+              h4 {{$flightPlan.id}}
+
+      div(flex)
+
+        md-toolbar
+          h1(class="md-toolbar-tools") Selected Flight Plan
+
+        md-progress-linear(ng-show="$ctrl.$process$selectedFlightPlan",md-mode="indeterminate")
+
+        div(ng-if="$ctrl.selectedFlightPlan",layout,flex,class="flightplan-details",layout-fill)
+
+          div(layout="column")
+
+            md-card(layout,layout-padding,class="portpair")
+              div(layout="column",layout-align="center start")
+                h3(class="icao") {{$ctrl.selectedFlightPlan.fromICAO}}
+                span(class="name") {{$ctrl.selectedFlightPlan.fromName}}
+              span(flex)
+              div(layout="column",layout-align="center end")
+                h3(class="icao") {{$ctrl.selectedFlightPlan.toICAO}}
+                span(class="name") {{$ctrl.selectedFlightPlan.toName}}
+
+            md-card(layout="column",layout-padding)
+              div(layout)
+                h4(layout,flex="25") Distance
+                h4(layout,flex) {{$ctrl.selectedFlightPlan.distance}} nm
+              md-divider
+              div(layout)
+                h4(layout,flex="25") Waypoints
+                h4(layout,flex) {{$ctrl.selectedFlightPlan.waypoints}}
+
+          div(flex)
+            ui-gmap-google-map(center='$ctrl.map.center',zoom='$ctrl.map.zoom')
+              ui-gmap-polyline(path="$ctrl.selectedFlightPath")
+
+
+    script(src="js/dependencies/lodash/lodash.js")
+    script(src="js/dependencies/jquery/jquery.js")
+    script(src="js/dependencies/angular/angular.js")
+    script(src="js/dependencies/angular-animate/angular-animate.js")
+    script(src="js/dependencies/angular-resource/angular-resource.js")
+    script(src="js/dependencies/angular-aria/angular-aria.js")
+    script(src="js/dependencies/angular-material/angular-material.js")
+    script(src="js/dependencies/angular-simple-logger/angular-simple-logger.js")
+    script(src="js/dependencies/angular-google-maps/angular-google-maps.js")
+
+    script(src="js/dependencies/cbas-api/cbas-api.js")
+
+    script(src="js/app/cbas-labs-app.module.js")
+    script(src="js/app/cbas-labs-app.config.js")
+    script(src="js/app/cbas-labs-app.controller.js")
+    script(src="js/app/cbas-labs-app.run.js")
+    script(src="js/app/cbas-labs-app-utils.js")
