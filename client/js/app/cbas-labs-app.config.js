@@ -7,7 +7,7 @@ var cbas;
         var module = angular.module('cbas-labs.app');
         function ConfigureMapsFunction(uiGmapGoogleMapApiProvider) {
             uiGmapGoogleMapApiProvider.configure({
-                key: '***REMOVED***',
+                key: 'AIzaSyDI1x_Yk5jvHW8ItsLNBZGtCNAl_sY1Zmw',
                 libraries: [
                     'geometry'
                 ]

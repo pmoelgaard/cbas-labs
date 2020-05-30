@@ -12,7 +12,7 @@ module cbas.labs {
 
   export function ConfigureMapsFunction(uiGmapGoogleMapApiProvider:IGoogleMapApiProvider) : void {
     uiGmapGoogleMapApiProvider.configure({
-      key: '***REMOVED***',
+      key: '{{google_api_key}}',
       libraries: [
         'geometry'
       ]
