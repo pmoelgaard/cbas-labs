@@ -1,6 +1,3 @@
-/// <reference path="../../../../typings/index.d.ts" />
-/// <reference path="../../../typings/index.d.ts" />
-
 import IModule = angular.IModule;
 
 module cbas.labs {
@@ -12,7 +9,7 @@ module cbas.labs {
 
   export function ConfigureMapsFunction(uiGmapGoogleMapApiProvider:IGoogleMapApiProvider) : void {
     uiGmapGoogleMapApiProvider.configure({
-      key: '{{google_api_key}}',
+      key: '***REMOVED***',
       libraries: [
         'geometry'
       ]
