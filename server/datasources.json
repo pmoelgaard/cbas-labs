@@ -1,0 +1,51 @@
+{
+  "flightplandatabase": {
+    "name": "flightplandatabase",
+    "connector": "rest",
+    "options": {
+      "headers": {
+        "Authorization": "Basic "
+      }
+    },
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.flightplandatabase.com/plan/{id}",
+          "query": {
+            "id": "{id}"
+          },
+          "options": {
+            "strictSSL": true,
+            "useQuerystring": true
+          }
+        },
+        "functions": {
+          "fetchPlan": [
+            "id"
+          ]
+        }
+      },
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://api.flightplandatabase.com/search/plans",
+          "query": {
+            "fromICAO": "{fromICAO}",
+            "toICAO": "{toICAO}"
+          },
+          "options": {
+            "strictSSL": true,
+            "useQuerystring": true
+          }
+        },
+        "functions": {
+          "searchPlans": [
+            "fromICAO",
+            "toICAO"
+          ]
+        }
+      }
+    ]
+  }
+}

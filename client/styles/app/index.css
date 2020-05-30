@@ -1,0 +1,19 @@
+.flightplan-search-form > form {
+  margin-bottom: 0em; }
+  .flightplan-search-form > form * md-input-container {
+    margin-bottom: 0em; }
+  .flightplan-search-form > form > .bottom-panel {
+    padding-left: 10px; }
+.flightplan-search-form * button {
+  margin-top: 0em; }
+
+md-card + md-card {
+  margin-top: 0px; }
+
+.flightplan-details * .portpair * .icao {
+  margin: 0em; }
+
+.angular-google-map-container {
+  height: 100%; }
+
+/*# sourceMappingURL=index.css.map */
